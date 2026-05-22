@@ -187,6 +187,14 @@
   }
 }
 
+/* Final typography guard for deploy builds. */
+:root,
+html,
+body {
+  --serif: "Cormorant Garamond", Georgia, serif !important;
+  --sans: "Inter", Arial, sans-serif !important;
+}
+
 /* Mobile trajectory redesign: editorial rhythm instead of stacked mini cards. */
 @media (max-width: 680px) {
   .trajectory {
