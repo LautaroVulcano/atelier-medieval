@@ -1,0 +1,10 @@
+# Local visual QA screenshots
+/desktop-*.png
+/mobile-*.png
+/page-*.png
+/screen-*.png
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/

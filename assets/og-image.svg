@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#211817"/>
+  <rect x="64" y="64" width="1072" height="502" fill="#fffaf3"/>
+  <path d="M102 510h996" stroke="#b58845" stroke-width="4"/>
+  <text x="104" y="190" font-family="Georgia, serif" font-size="86" font-weight="700" fill="#211817">Atelier Medieval</text>
+  <text x="108" y="274" font-family="Arial, sans-serif" font-size="34" fill="#6e1f2f">Diseños de autor para vestir momentos importantes.</text>
+  <text x="108" y="350" font-family="Arial, sans-serif" font-size="28" fill="#725f59">Vestidos a medida, piezas listas para usar, asesoramiento y talleres en Tandil.</text>
+  <circle cx="1010" cy="194" r="72" fill="#6e1f2f"/>
+  <text x="965" y="214" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#fffaf3">M</text>
+</svg>
