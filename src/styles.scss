@@ -3525,3 +3525,587 @@ blockquote {
   gap: 0;
   padding-bottom: 0.18rem;
 }
+
+/* About Ro desktop repair: section title, not a second hero. */
+.about-ro {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 901px) {
+  .about-ro {
+    grid-template-columns: minmax(24rem, 0.9fr) minmax(36rem, 1.1fr) !important;
+    gap: clamp(3rem, 5vw, 5.5rem) !important;
+    align-items: center;
+    padding-top: clamp(5.75rem, 7vw, 7.5rem) !important;
+    padding-bottom: clamp(5rem, 6vw, 6.5rem) !important;
+  }
+
+  .about-ro > div:first-child {
+    align-self: center;
+  }
+
+  #ro-title {
+    max-width: 10.5ch !important;
+    font-size: clamp(3.65rem, 4.35vw, 5.1rem) !important;
+    line-height: 1 !important;
+  }
+
+  .about-photo {
+    width: min(100%, 24rem) !important;
+    margin-top: 1.45rem !important;
+    border-width: 7px;
+  }
+
+  .about-ro .text-stack {
+    max-width: 47rem !important;
+    padding: 1.4rem 0 1.4rem 2rem !important;
+  }
+
+  .about-ro blockquote {
+    max-width: 41rem !important;
+    padding: 1rem 1.15rem 1rem 1.3rem !important;
+    font-size: clamp(1.22rem, 1.65vw, 1.75rem);
+    line-height: 1.16;
+  }
+}
+
+/* Desktop trajectory repair: readable title and confident numbers. */
+@media (min-width: 901px) {
+  .trajectory {
+    padding-top: clamp(5rem, 6vw, 6.5rem) !important;
+    padding-bottom: clamp(5rem, 6vw, 6.5rem) !important;
+  }
+
+  .trajectory .section-heading {
+    margin-bottom: 2.1rem !important;
+  }
+
+  .trajectory .section-heading h2 {
+    max-width: 14ch !important;
+    font-size: clamp(3.9rem, 4.8vw, 5.35rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .stats {
+    gap: 1.1rem !important;
+    margin: 2rem 0 1.7rem !important;
+  }
+
+  .stats div {
+    min-height: 10.7rem !important;
+    padding: 1.55rem 1.7rem !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .stats strong {
+    margin-bottom: 0.55rem;
+    font-size: clamp(4.15rem, 5.25vw, 5.85rem) !important;
+    line-height: 0.72 !important;
+  }
+
+  .stats span {
+    max-width: 10rem !important;
+    margin-top: 0;
+    font-size: 1.08rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .authority-list {
+    gap: 1rem !important;
+  }
+
+  .authority-list li {
+    min-height: 5.55rem !important;
+    padding: 1.25rem 1.25rem 1.25rem 4rem !important;
+    font-size: 1rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .authority-list li::before {
+    top: 1.18rem !important;
+    left: 1.15rem !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 0.86rem !important;
+  }
+}
+
+/* Desktop process redesign: balanced horizontal flow instead of oversized split layout. */
+@media (min-width: 901px) {
+  .process {
+    display: block !important;
+    padding-top: clamp(5.25rem, 6.5vw, 7rem) !important;
+    padding-bottom: clamp(5.25rem, 6.5vw, 7rem) !important;
+  }
+
+  .process .section-heading {
+    max-width: 58rem !important;
+    margin: 0 0 2.7rem !important;
+  }
+
+  .process .section-heading h2 {
+    max-width: 13.8ch !important;
+    font-size: clamp(3.55rem, 4.7vw, 5.35rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .process-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .process-list::before {
+    display: none !important;
+  }
+
+  .process-list article {
+    display: block !important;
+    min-height: 16rem;
+    padding: 1.45rem 1.35rem 1.55rem !important;
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+    border-radius: 1.15rem;
+    background:
+      radial-gradient(circle at 12% 12%, rgba(155, 122, 229, 0.11), transparent 7rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(250, 248, 245, 0.74));
+    box-shadow:
+      0 1.1rem 2.7rem rgba(75, 53, 122, 0.055),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.68);
+  }
+
+  .process-list article + article {
+    border-top: 1px solid rgba(75, 53, 122, 0.12) !important;
+  }
+
+  .process-list article::before {
+    top: 1.2rem !important;
+    right: 1.25rem;
+    left: auto !important;
+    width: 2.8rem !important;
+    height: 1px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(90deg, transparent, rgba(155, 122, 229, 0.5)) !important;
+    box-shadow: none !important;
+  }
+
+  .process-list article::after {
+    display: none !important;
+  }
+
+  .process-list span {
+    display: inline-flex !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 0 1.3rem !important;
+    padding: 0.48rem 0.72rem !important;
+    border: 1px solid rgba(155, 122, 229, 0.17) !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    box-shadow: none !important;
+  }
+
+  .process-list h3 {
+    margin: 0 !important;
+    font-size: 1.18rem !important;
+    line-height: 1.2;
+  }
+
+  .process-list p {
+    max-width: 100% !important;
+    margin-top: 0.8rem !important;
+    font-size: 0.98rem;
+    line-height: 1.55 !important;
+  }
+}
+
+/* Process final direction: no big cards, just a clean horizontal atelier timeline. */
+@media (min-width: 901px) {
+  .process {
+    padding-top: clamp(5rem, 6vw, 6.25rem) !important;
+    padding-bottom: clamp(5.2rem, 6vw, 6.6rem) !important;
+  }
+
+  .process .section-heading {
+    max-width: 70rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .process .section-heading h2 {
+    max-width: 17ch !important;
+    font-size: clamp(3.15rem, 4vw, 4.55rem) !important;
+    line-height: 1 !important;
+  }
+
+  .process-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1.35rem !important;
+  }
+
+  .process-list article {
+    min-height: 0 !important;
+    padding: 1.55rem 1rem 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(75, 53, 122, 0.16) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .process-list article + article {
+    border-top: 1px solid rgba(75, 53, 122, 0.16) !important;
+  }
+
+  .process-list article::before {
+    display: block !important;
+    top: -1px !important;
+    right: auto !important;
+    left: 0 !important;
+    width: 4.8rem !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, #9b7ae5, rgba(155, 122, 229, 0)) !important;
+  }
+
+  .process-list article::after {
+    display: block !important;
+    top: -0.34rem !important;
+    left: 4.55rem !important;
+    width: 0.68rem !important;
+    height: 0.68rem !important;
+    border-radius: 999px !important;
+    background: #fbf7f1 !important;
+    box-shadow:
+      0 0 0 1px rgba(155, 122, 229, 0.35),
+      0 0.6rem 1rem rgba(75, 53, 122, 0.08) !important;
+  }
+
+  .process-list span {
+    margin-bottom: 1.15rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--lilac-dark);
+    font-size: 0.72rem !important;
+    letter-spacing: 0.14em;
+  }
+
+  .process-list h3 {
+    font-size: 1.22rem !important;
+  }
+
+  .process-list p {
+    max-width: 20rem !important;
+    font-size: 1rem;
+    line-height: 1.58 !important;
+  }
+}
+
+/* Experience cards repair: controlled titles and consistent actions. */
+.experience-grid {
+  align-items: stretch;
+}
+
+.experience-card {
+  min-height: 23rem;
+  align-content: start;
+  grid-template-rows: auto auto auto 1fr auto auto;
+  padding: clamp(1.55rem, 2.2vw, 2.05rem) !important;
+}
+
+.experience-card h2 {
+  max-width: 11.5ch;
+  margin-bottom: 0.95rem;
+  font-size: clamp(2.35rem, 3.15vw, 3.35rem) !important;
+  line-height: 0.98 !important;
+}
+
+.experience-card p:not(.eyebrow):not(.microcopy) {
+  max-width: 35rem;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.experience-card .cta-row {
+  align-self: end;
+  margin-top: 1.45rem;
+}
+
+.experience-card .button {
+  min-height: 2.9rem;
+}
+
+.experience-card .text-link {
+  align-self: center;
+  margin-top: 0;
+}
+
+.experience-card .microcopy {
+  margin-top: 0.6rem;
+}
+
+.dark-card h2 {
+  max-width: 12ch;
+  color: #fbf7f1;
+}
+
+.dark-card ul {
+  margin: 1.1rem 0 0;
+}
+
+@media (min-width: 901px) {
+  .experience-grid {
+    grid-template-columns: 1fr 1.05fr 1fr;
+    gap: 1rem;
+  }
+
+  .experience-card:nth-child(3) h2 {
+    max-width: 11ch;
+  }
+}
+
+@media (max-width: 680px) {
+  .experience-card {
+    min-height: auto;
+    padding: 1.35rem !important;
+  }
+
+  .experience-card h2 {
+    max-width: 10.5ch;
+    font-size: clamp(2rem, 9vw, 2.55rem) !important;
+  }
+}
+
+/* Stronger experience-card cleanup: compact editorial cards, no oversized pills. */
+.experience-card {
+  display: flex !important;
+  flex-direction: column;
+  min-height: 20.5rem !important;
+  padding: clamp(1.45rem, 1.8vw, 1.8rem) !important;
+}
+
+.experience-card h2 {
+  max-width: 12.8ch !important;
+  margin-bottom: 0.85rem !important;
+  font-size: clamp(2rem, 2.45vw, 2.75rem) !important;
+  line-height: 1.02 !important;
+}
+
+.experience-card p:not(.eyebrow):not(.microcopy),
+.experience-card li {
+  font-size: 0.96rem !important;
+  line-height: 1.48 !important;
+}
+
+.experience-card .cta-row {
+  width: 100%;
+  margin-top: auto !important;
+  padding-top: 1.25rem;
+  align-items: center;
+}
+
+.experience-card .button {
+  width: auto !important;
+  min-width: 10.5rem;
+  max-width: 100%;
+  min-height: 2.65rem !important;
+  padding: 0.72rem 1.15rem !important;
+  border-radius: 999px;
+  font-size: 0.88rem;
+}
+
+.experience-card > .button {
+  width: 100% !important;
+  margin-top: auto !important;
+}
+
+.experience-card .text-link {
+  font-size: 0.88rem;
+}
+
+.experience-card .microcopy {
+  font-size: 0.86rem !important;
+}
+
+.dark-card h2 {
+  max-width: 11.5ch !important;
+  font-size: clamp(2.08rem, 2.5vw, 2.9rem) !important;
+}
+
+@media (min-width: 901px) {
+  .experience-grid {
+    gap: 0.9rem !important;
+    padding-top: clamp(4.2rem, 5vw, 5.25rem);
+    padding-bottom: clamp(4.2rem, 5vw, 5.25rem);
+  }
+
+  .experience-card:nth-child(3) .button {
+    width: 100% !important;
+  }
+}
+
+/* Mobile inspiration and overflow cleanup. */
+@media (max-width: 680px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  main,
+  section {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .inspiration {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 3.4rem 1.25rem 3.7rem !important;
+    background:
+      linear-gradient(180deg, rgba(28, 20, 38, 0.82), rgba(28, 20, 38, 0.94)),
+      url("assets/atelier-hero-v2.png") 60% center / cover !important;
+    text-align: left !important;
+  }
+
+  .inspiration > div:first-child,
+  .inspiration-copy {
+    width: min(100%, 20rem) !important;
+    max-width: min(100%, 20rem) !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    text-align: left !important;
+  }
+
+  .inspiration .eyebrow {
+    margin-bottom: 0.8rem;
+    text-align: left;
+  }
+
+  .inspiration h2 {
+    max-width: 9.2ch;
+    margin: 0;
+    font-size: clamp(2.25rem, 9.6vw, 2.75rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .inspiration-copy {
+    gap: 0.85rem;
+    margin-top: 1.25rem !important;
+  }
+
+  .inspiration-copy p {
+    font-size: 0.96rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .experience-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-right: 1.25rem !important;
+    padding-left: 1.25rem !important;
+    box-sizing: border-box;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    overflow-x: clip;
+  }
+
+  .experience-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    min-width: 0 !important;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .experience-card h2 {
+    font-size: clamp(1.95rem, 8.4vw, 2.38rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .experience-grid {
+    gap: 1rem !important;
+    padding-top: 2.9rem !important;
+    padding-bottom: 3.2rem !important;
+  }
+
+  .experience-card {
+    padding: 1.42rem 1.28rem 1.5rem !important;
+    gap: 0 !important;
+  }
+
+  .experience-card .eyebrow {
+    margin-bottom: 0.58rem !important;
+  }
+
+  .experience-card h2 {
+    margin-bottom: 0.8rem !important;
+  }
+
+  .experience-card p:not(.eyebrow):not(.microcopy) {
+    margin-bottom: 0 !important;
+  }
+
+  .experience-card .cta-row {
+    gap: 0.65rem !important;
+    margin-top: 1.25rem !important;
+    padding-top: 0 !important;
+  }
+
+  .experience-card .button {
+    min-height: 2.75rem !important;
+  }
+
+  .experience-card .text-link {
+    margin-top: 0.05rem !important;
+  }
+
+  .experience-card .microcopy {
+    margin-top: 0.45rem !important;
+  }
+
+  .dark-card ul {
+    gap: 0.52rem !important;
+    margin: 1rem 0 1.05rem !important;
+  }
+
+  .dark-card .button {
+    margin-top: 0 !important;
+  }
+
+  #talleres .button {
+    margin-top: 1.25rem !important;
+  }
+
+  .experience-card h2,
+  .experience-card p,
+  .experience-card li,
+  .experience-card a {
+    min-width: 0;
+    width: 100%;
+    max-width: 100% !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .experience-card .cta-row {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .experience-card .button {
+    width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal;
+  }
+}
