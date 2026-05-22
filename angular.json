@@ -38,7 +38,8 @@
               "allowedHosts": [
                 "127.0.0.1",
                 "localhost",
-                "atelier-medieval.com"
+                "atelier-medieval.com",
+                "atelier-medieval.187.77.41.247.sslip.io"
               ]
             },
             "ssr": {
