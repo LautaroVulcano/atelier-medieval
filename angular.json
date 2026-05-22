@@ -39,7 +39,9 @@
                 "127.0.0.1",
                 "localhost",
                 "atelier-medieval.com",
-                "atelier-medieval.187.77.41.247.sslip.io"
+                "www.atelier-medieval.com",
+                "atelier-medieval.187.77.41.247.sslip.io",
+                "atelier-medieval-http.187.77.41.247.sslip.io"
               ]
             },
             "ssr": {
