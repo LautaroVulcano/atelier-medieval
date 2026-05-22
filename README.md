@@ -1,19 +1,30 @@
-# Atelier Medieval Landing
+# Atelier Medieval
 
-Landing page estática para Atelier Medieval, marca de diseño de autor de Rocío Aranda en Tandil.
+Landing SSR en Angular para Atelier Medieval, marca de diseño de autor de Rocio Aranda en Tandil.
 
-## Abrir local
+## Desarrollo
 
-Abrir `index.html` en el navegador.
+```bash
+npm ci
+npm start
+```
 
-## Editar links
+## Produccion local
 
-Buscar en `index.html`:
+```bash
+npm run build
+npm run serve:ssr
+```
 
-- `data-shop-link` para reemplazar tienda/Instagram.
-- `data-whatsapp-link` para reemplazar WhatsApp.
-- `atelier-medieval.com` para reemplazar dominio final.
+La app SSR escucha en `PORT` o `4000` por defecto.
 
-## Imagen principal
+## QA
 
-`assets/atelier-hero.png` es una imagen editorial provisoria generada para la maqueta. Reemplazar por fotos reales cuando estén disponibles.
+```bash
+npm test
+npm run test:e2e
+```
+
+## Deploy
+
+El proyecto esta preparado para Dokploy como app Dockerfile. Ver [DOKPLOY.md](DOKPLOY.md).

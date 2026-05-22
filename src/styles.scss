@@ -464,7 +464,7 @@ blockquote {
 
 .product-visual {
   min-height: 15rem;
-  background: url("assets/atelier-hero-v2.png") center / cover;
+  background: url("/assets/atelier-hero-v2.png") center / cover;
 }
 
 .product-body {
@@ -485,11 +485,11 @@ blockquote {
 }
 
 .visual-2 {
-  background: url("assets/atelier-hero-v2.png") 65% 35% / 180% auto;
+  background: url("/assets/atelier-hero-v2.png") 65% 35% / 180% auto;
 }
 
 .visual-3 {
-  background: url("assets/atelier-hero-v2.png") 45% 82% / 185% auto;
+  background: url("/assets/atelier-hero-v2.png") 45% 82% / 185% auto;
 }
 
 .custom {
@@ -499,7 +499,7 @@ blockquote {
   align-items: end;
   background:
     linear-gradient(rgba(18, 14, 13, 0.88), rgba(18, 14, 13, 0.94)),
-    url("assets/atelier-hero-v2.png") center / cover;
+    url("/assets/atelier-hero-v2.png") center / cover;
   color: var(--ivory);
 }
 
@@ -653,7 +653,7 @@ blockquote {
   align-items: end;
   background:
     linear-gradient(rgba(28, 20, 38, 0.78), rgba(28, 20, 38, 0.9)),
-    url("assets/atelier-hero-v2.png") center 42% / cover;
+    url("/assets/atelier-hero-v2.png") center 42% / cover;
   color: var(--ivory);
 }
 
@@ -702,7 +702,7 @@ blockquote {
   text-align: center;
   background:
     linear-gradient(rgba(251, 247, 241, 0.84), rgba(251, 247, 241, 0.92)),
-    url("assets/atelier-hero-v2.png") center / cover;
+    url("/assets/atelier-hero-v2.png") center / cover;
 }
 
 .final-cta h2 {
@@ -1066,7 +1066,7 @@ blockquote {
 .custom {
   background:
     linear-gradient(rgba(28, 20, 38, 0.86), rgba(28, 20, 38, 0.94)),
-    url("assets/atelier-hero-v2.png") center / cover;
+    url("/assets/atelier-hero-v2.png") center / cover;
 }
 
 .custom .eyebrow,
@@ -1112,7 +1112,7 @@ blockquote {
 .final-cta {
   background:
     linear-gradient(rgba(237, 230, 255, 0.86), rgba(250, 248, 245, 0.93)),
-    url("assets/atelier-hero-v2.png") center / cover;
+    url("/assets/atelier-hero-v2.png") center / cover;
 }
 
 .site-footer {
@@ -1267,7 +1267,7 @@ blockquote {
   background:
     radial-gradient(circle at 18% 22%, rgba(155, 122, 229, 0.2), transparent 24rem),
     linear-gradient(105deg, rgba(28, 20, 38, 0.9), rgba(28, 20, 38, 0.76) 42%, rgba(28, 20, 38, 0.94)),
-    url("assets/atelier-hero-v2.png") center / cover;
+    url("/assets/atelier-hero-v2.png") center / cover;
 }
 
 .about {
@@ -1280,7 +1280,7 @@ blockquote {
   background:
     radial-gradient(circle at 72% 24%, rgba(155, 122, 229, 0.18), transparent 18rem),
     linear-gradient(115deg, rgba(28, 20, 38, 0.82), rgba(28, 20, 38, 0.94)),
-    url("assets/atelier-hero-v2.png") center 42% / cover;
+    url("/assets/atelier-hero-v2.png") center 42% / cover;
 }
 
 .experience-grid {
@@ -1299,7 +1299,7 @@ blockquote {
   background:
     radial-gradient(circle at 50% 0%, rgba(155, 122, 229, 0.26), transparent 18rem),
     linear-gradient(rgba(237, 230, 255, 0.88), rgba(250, 248, 245, 0.94)),
-    url("assets/atelier-hero-v2.png") center / cover;
+    url("/assets/atelier-hero-v2.png") center / cover;
 }
 
 .hero::after {
@@ -1812,7 +1812,7 @@ blockquote {
     border-radius: 1.35rem;
     background:
       linear-gradient(rgba(28, 20, 38, 0.72), rgba(28, 20, 38, 0.86)),
-      url("assets/atelier-hero-v2.png") center 62% / cover;
+      url("/assets/atelier-hero-v2.png") center 62% / cover;
     color: rgba(250, 248, 245, 0.92);
     font-size: clamp(1.55rem, 7vw, 1.9rem);
     line-height: 1.08;

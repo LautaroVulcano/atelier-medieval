@@ -1,53 +1,6 @@
-<!doctype html>
-<html lang="es-AR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Atelier Medieval | Diseños de autor en Tandil</title>
-  <meta name="description" content="Vestidos de fiesta a medida, piezas listas para usar, asesoramiento de imagen y talleres creados por Rocío Aranda desde Atelier Medieval en Tandil.">
-  <meta name="keywords" content="Atelier Medieval, Rocío Aranda, vestidos a medida, alta costura, diseño de autor, Tandil, corsetería, asesoramiento de imagen">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Atelier Medieval">
-  <meta name="theme-color" content="#211817">
-  <meta name="color-scheme" content="light">
-  <link rel="canonical" href="https://atelier-medieval.com/">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Atelier Medieval">
-  <meta property="og:title" content="Atelier Medieval | Diseños de autor para vestir momentos importantes">
-  <meta property="og:description" content="Alta costura, corsetería, bordados, piezas listas para usar y vestidos a medida por Rocío Aranda en Tandil.">
-  <meta property="og:url" content="https://atelier-medieval.com/">
-  <meta property="og:image" content="https://atelier-medieval.com/assets/og-image.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Atelier Medieval">
-  <meta name="twitter:description" content="Diseños de autor para vestir momentos importantes.">
-  <meta name="twitter:image" content="https://atelier-medieval.com/assets/og-image.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Atelier Medieval",
-      "founder": "Rocío Aranda",
-      "description": "Diseño de autor, vestidos de fiesta a medida, piezas listas para usar, asesoramiento de imagen y talleres.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Tandil",
-        "addressRegion": "Buenos Aires",
-        "addressCountry": "AR"
-      },
-      "url": "https://atelier-medieval.com/"
-    }
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header class="site-header" data-header>
+  <header class="site-header" [class.is-scrolled]="isScrolled">
     <a class="brand" href="#inicio" aria-label="Atelier Medieval - inicio">
       <span class="brand-mark">M</span>
       <span>
@@ -56,12 +9,12 @@
       </span>
     </a>
 
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-toggle>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" [attr.aria-expanded]="menuOpen" (click)="toggleMenu()">
       <span></span>
       <span></span>
     </button>
 
-    <nav class="main-nav" data-nav aria-label="Navegación principal">
+    <nav class="main-nav" [class.is-open]="menuOpen" (click)="closeMenuFromNav($event)" aria-label="Navegacion principal">
       <a href="#tienda">Tienda</a>
       <a href="#amedida">A medida</a>
       <a href="#ro">Sobre Ro</a>
@@ -325,7 +278,3 @@
     <p>Atelier Medieval · Rocío Aranda · Tandil, Buenos Aires</p>
     <p>Diseño de autor, alta costura y asesoramiento de imagen.</p>
   </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>

@@ -1,0 +1,10 @@
+node_modules
+.angular
+dist
+.git
+.github
+coverage
+playwright-report
+test-results
+*.log
+ng-serve.*.log
