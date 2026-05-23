@@ -9,8 +9,8 @@
   --black: #120e0d;
   --line: rgba(33, 24, 23, 0.14);
   --shadow: 0 24px 70px rgba(33, 24, 23, 0.12);
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Inter", Arial, sans-serif;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Manrope", Arial, sans-serif;
 }
 
 /* Final mobile repair: keep these at the end so older design passes do not override them. */
@@ -24,7 +24,7 @@
     border-radius: 0 !important;
     background:
       linear-gradient(180deg, rgba(28, 20, 38, 0.82), rgba(28, 20, 38, 0.94)),
-      url("assets/atelier-hero-v2.png") center / cover !important;
+      url("/assets/atelier-hero-v2.png") center / cover !important;
     color: var(--ivory);
     overflow: hidden !important;
   }
@@ -88,30 +88,26 @@
     max-width: min(100%, 20.5rem) !important;
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 0 !important;
-    margin: 1.45rem auto 1.95rem !important;
-    border-top: 1px solid rgba(75, 53, 122, 0.14) !important;
-    border-bottom: 1px solid rgba(75, 53, 122, 0.14) !important;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(250, 248, 245, 0.44)) !important;
-    box-shadow: none !important;
-  }
-
-  .stats div {
-    min-height: 0 !important;
-    display: block !important;
-    padding: 1rem 0.85rem 0.95rem !important;
+    gap: 0.72rem !important;
+    margin: 1.6rem auto 2.15rem !important;
     border: 0 !important;
-    border-radius: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
   }
 
-  .stats div:nth-child(odd) {
-    border-right: 1px solid rgba(75, 53, 122, 0.1) !important;
-  }
-
-  .stats div:nth-child(n + 3) {
-    border-top: 1px solid rgba(75, 53, 122, 0.1) !important;
+  .stats div {
+    min-height: 7.1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.05rem 0.75rem !important;
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+    border-radius: 1.15rem !important;
+    background:
+      radial-gradient(circle at 50% 16%, rgba(155, 122, 229, 0.14), transparent 4.6rem),
+      rgba(255, 255, 255, 0.58) !important;
+    box-shadow: 0 1rem 2.4rem rgba(75, 53, 122, 0.08) !important;
   }
 
   .stats div::before,
@@ -120,20 +116,22 @@
   }
 
   .stats strong {
-    margin: 0 0 0.32rem !important;
+    margin: 0 0 0.38rem !important;
     color: var(--lilac-dark) !important;
-    font-size: clamp(2.55rem, 10.4vw, 3.08rem) !important;
-    line-height: 0.84 !important;
-    text-shadow: none !important;
+    font-size: clamp(3rem, 12vw, 3.65rem) !important;
+    line-height: 0.78 !important;
+    text-align: center !important;
+    text-shadow: 0 0.55rem 1.25rem rgba(75, 53, 122, 0.13) !important;
   }
 
   .stats span {
-    max-width: 7.6rem !important;
+    max-width: 8.2rem !important;
     margin: 0 !important;
     color: rgba(31, 23, 42, 0.62) !important;
-    font-size: 0.77rem !important;
-    line-height: 1.16 !important;
-    font-weight: 850 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+    text-align: center !important;
   }
 
   .authority-list {
@@ -187,12 +185,142 @@
   }
 }
 
-/* Final typography guard for deploy builds. */
-:root,
-html,
-body {
-  --serif: "Cormorant Garamond", Georgia, serif !important;
-  --sans: "Inter", Arial, sans-serif !important;
+@media (max-width: 680px) {
+  .trajectory .stats {
+    gap: 0.72rem !important;
+    margin: 1.6rem auto 2.15rem !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .trajectory .stats div {
+    min-height: 7.1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.05rem 0.75rem !important;
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+    border-radius: 1.15rem !important;
+    background:
+      radial-gradient(circle at 50% 16%, rgba(155, 122, 229, 0.14), transparent 4.6rem),
+      rgba(255, 255, 255, 0.58) !important;
+    box-shadow: 0 1rem 2.4rem rgba(75, 53, 122, 0.08) !important;
+  }
+
+  .trajectory .stats div:nth-child(odd),
+  .trajectory .stats div:nth-child(n + 3) {
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+  }
+
+  .trajectory .stats strong {
+    margin: 0 0 0.38rem !important;
+    font-size: clamp(3rem, 12vw, 3.65rem) !important;
+    line-height: 0.78 !important;
+    text-align: center !important;
+    text-shadow: 0 0.55rem 1.25rem rgba(75, 53, 122, 0.13) !important;
+  }
+
+  .trajectory .stats span {
+    max-width: 8.2rem !important;
+    margin: 0 auto !important;
+    font-size: 0.8rem !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .trajectory .stats {
+    gap: 0.72rem !important;
+    margin: 1.6rem auto 2.15rem !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .trajectory .stats div {
+    min-height: 7.1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.05rem 0.75rem !important;
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+    border-radius: 1.15rem !important;
+    background:
+      radial-gradient(circle at 50% 16%, rgba(155, 122, 229, 0.14), transparent 4.6rem),
+      rgba(255, 255, 255, 0.58) !important;
+    box-shadow: 0 1rem 2.4rem rgba(75, 53, 122, 0.08) !important;
+  }
+
+  .trajectory .stats div:nth-child(odd),
+  .trajectory .stats div:nth-child(n + 3) {
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+  }
+
+  .trajectory .stats strong {
+    margin: 0 0 0.38rem !important;
+    font-size: clamp(3rem, 12vw, 3.65rem) !important;
+    line-height: 0.78 !important;
+    text-align: center !important;
+    text-shadow: 0 0.55rem 1.25rem rgba(75, 53, 122, 0.13) !important;
+  }
+
+  .trajectory .stats span {
+    max-width: 8.2rem !important;
+    margin: 0 auto !important;
+    font-size: 0.8rem !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .trajectory .stats {
+    gap: 0.72rem !important;
+    margin: 1.6rem auto 2.15rem !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .trajectory .stats div {
+    min-height: 7.1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.05rem 0.75rem !important;
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+    border-radius: 1.15rem !important;
+    background:
+      radial-gradient(circle at 50% 16%, rgba(155, 122, 229, 0.14), transparent 4.6rem),
+      rgba(255, 255, 255, 0.58) !important;
+    box-shadow: 0 1rem 2.4rem rgba(75, 53, 122, 0.08) !important;
+  }
+
+  .trajectory .stats div:nth-child(odd),
+  .trajectory .stats div:nth-child(n + 3) {
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+  }
+
+  .trajectory .stats strong {
+    margin: 0 0 0.38rem !important;
+    font-size: clamp(3rem, 12vw, 3.65rem) !important;
+    line-height: 0.78 !important;
+    text-align: center !important;
+    text-shadow: 0 0.55rem 1.25rem rgba(75, 53, 122, 0.13) !important;
+  }
+
+  .trajectory .stats span {
+    max-width: 8.2rem !important;
+    margin: 0 auto !important;
+    font-size: 0.8rem !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+  }
 }
 
 /* Mobile trajectory redesign: editorial rhythm instead of stacked mini cards. */
@@ -805,15 +933,15 @@ blockquote {
 }
 
 .category-vestidos {
-  background: url("assets/shop-vestidos-fiesta.jpg") center 18% / cover !important;
+  background: url("/assets/shop-vestidos-fiesta.png") center 18% / cover !important;
 }
 
 .category-tops {
-  background: url("assets/shop-corsets-tops.jpg") center 18% / cover !important;
+  background: url("/assets/shop-corsets-tops.png") center 18% / cover !important;
 }
 
 .category-chaquetas {
-  background: url("assets/shop-chaquetas-abrigos.jpg") center 22% / cover !important;
+  background: url("/assets/shop-chaquetas-abrigos.png") center 22% / cover !important;
 }
 
 .custom {
@@ -1474,8 +1602,8 @@ blockquote {
 
 /* Atelier Medieval v4: textura, profundidad y jerarquía editorial */
 :root {
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Inter", Arial, sans-serif;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Manrope", Arial, sans-serif;
   --shadow: 0 26px 80px rgba(75, 53, 122, 0.14);
 }
 
@@ -3766,15 +3894,20 @@ blockquote {
   }
 
   .process-list article {
-    padding: 1.25rem 0 1.35rem;
+    padding: 1.3rem 0 1.35rem 1.35rem;
   }
 
   .process-list article::before {
-    width: 3.5rem;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(155, 122, 229, 0.28), rgba(75, 53, 122, 0.08));
   }
 
   .process-list article::after {
-    left: 3.25rem;
+    top: 1.72rem;
+    left: 0.42rem;
+    transform: none;
+    width: 0.56rem;
+    height: 0.56rem;
   }
 
   .process-list span {
@@ -4314,7 +4447,7 @@ blockquote {
     padding: 3.4rem 1.25rem 3.7rem !important;
     background:
       linear-gradient(180deg, rgba(28, 20, 38, 0.82), rgba(28, 20, 38, 0.94)),
-      url("assets/atelier-hero-v2.png") 60% center / cover !important;
+      url("/assets/atelier-hero-v2.png") 60% center / cover !important;
     text-align: left !important;
   }
 
@@ -4464,7 +4597,7 @@ blockquote {
     border-radius: 0 !important;
     background:
       linear-gradient(180deg, rgba(28, 20, 38, 0.82), rgba(28, 20, 38, 0.94)),
-      url("assets/atelier-hero-v2.png") center / cover !important;
+      url("/assets/atelier-hero-v2.png") center / cover !important;
     color: var(--ivory);
     overflow: hidden !important;
   }
@@ -4624,5 +4757,68 @@ blockquote {
     font-size: 1em !important;
     line-height: inherit !important;
     font-weight: 900 !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .trajectory .stats {
+    gap: 0.72rem !important;
+    margin: 1.6rem auto 2.15rem !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .trajectory .stats div {
+    min-height: 7.1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.05rem 0.75rem !important;
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+    border-radius: 1.15rem !important;
+    background:
+      radial-gradient(circle at 50% 16%, rgba(155, 122, 229, 0.14), transparent 4.6rem),
+      rgba(255, 255, 255, 0.58) !important;
+    box-shadow: 0 1rem 2.4rem rgba(75, 53, 122, 0.08) !important;
+  }
+
+  .trajectory .stats div:nth-child(odd),
+  .trajectory .stats div:nth-child(n + 3) {
+    border: 1px solid rgba(75, 53, 122, 0.12) !important;
+  }
+
+  .trajectory .stats strong {
+    margin: 0 0 0.38rem !important;
+    font-size: clamp(3rem, 12vw, 3.65rem) !important;
+    line-height: 0.78 !important;
+    text-align: center !important;
+    text-shadow: 0 0.55rem 1.25rem rgba(75, 53, 122, 0.13) !important;
+  }
+
+  .trajectory .stats span {
+    max-width: 8.2rem !important;
+    margin: 0 auto !important;
+    font-size: 0.8rem !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .inspiration > div:first-child {
+    text-align: left !important;
+  }
+
+  .inspiration .eyebrow {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .inspiration h2 {
+    max-width: 9.8ch !important;
+    margin: 0 0 1.25rem !important;
+    text-align: left !important;
   }
 }
