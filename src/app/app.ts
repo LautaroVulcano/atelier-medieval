@@ -14,6 +14,14 @@ export class App {
   protected menuOpen = false;
   protected isScrolled = false;
 
+  protected get isCoursePage(): boolean {
+    if (!isPlatformBrowser(this.platformId)) {
+      return false;
+    }
+
+    return window.location.pathname.replace(/\/$/, '') === '/curso-lenceria';
+  }
+
   @HostListener('window:scroll')
   protected onWindowScroll(): void {
     if (isPlatformBrowser(this.platformId)) {

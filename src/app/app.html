@@ -1,7 +1,7 @@
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <header class="site-header" [class.is-scrolled]="isScrolled">
-    <a class="brand" href="#inicio" aria-label="Atelier Medieval - inicio">
+    <a class="brand" href="/" aria-label="Atelier Medieval - inicio">
       <span class="brand-mark">M</span>
       <span>
         <strong>Atelier Medieval</strong>
@@ -15,17 +15,23 @@
     </button>
 
     <nav class="main-nav" [class.is-open]="menuOpen" (click)="closeMenuFromNav($event)" aria-label="Navegacion principal">
-      <a href="#tienda">Tienda</a>
-      <a href="#amedida">A medida</a>
-      <a href="#ro">Sobre Ro</a>
-      <a href="#showroom">Showroom</a>
+      <a [href]="isCoursePage ? '/#tienda' : '#tienda'">Tienda</a>
+      <a [href]="isCoursePage ? '/#amedida' : '#amedida'">A medida</a>
+      <a [href]="isCoursePage ? '/#ro' : '#ro'">Sobre Ro</a>
+      <a href="/curso-lenceria">Curso online</a>
+      <a [href]="isCoursePage ? '/#showroom' : '#showroom'">Showroom</a>
       <a href="https://www.instagram.com/medievalbyaranda/" target="_blank" rel="noreferrer">Instagram</a>
-      <a href="#contacto">Contacto</a>
+      <a [href]="isCoursePage ? '/#contacto' : '#contacto'">Contacto</a>
     </nav>
 
-    <a class="header-cta" href="https://medievalbyaranda.com.ar/fashion-tienda/" target="_blank" rel="noreferrer" data-shop-link>Ver tienda online</a>
+    @if (isCoursePage) {
+      <a class="header-cta" href="https://wa.me/5492235110468?text=Hola%20Roc%C3%ADo%2C%20quiero%20inscribirme%20al%20curso%20online%20de%20lencer%C3%ADa" target="_blank" rel="noreferrer" data-whatsapp-link>Inscribirme</a>
+    } @else {
+      <a class="header-cta" href="https://medievalbyaranda.com.ar/fashion-tienda/" target="_blank" rel="noreferrer" data-shop-link>Ver tienda online</a>
+    }
   </header>
 
+@if (!isCoursePage) {
   <main id="contenido">
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <figure class="hero-media">
@@ -275,6 +281,239 @@
       <p class="social-note">En Instagram comparte procesos, piezas disponibles, eventos y contenido del universo Medieval.</p>
     </section>
   </main>
+} @else {
+  <main id="contenido" class="course-page">
+    <section class="course-hero" aria-labelledby="course-title">
+      <div class="course-hero-copy">
+        <p class="eyebrow">Curso online · Lencería desde casa</p>
+        <h1 id="course-title">Aprendé a confeccionar tu propia lencería con tu máquina familiar</h1>
+        <p class="course-lede">Un curso guiado por <strong>Rocío Aranda</strong> para crear <strong>bombachas, corpiños, body y top deportivo</strong> desde cero, aprendiendo a realizar tu <strong>propia moldería</strong>, con videos detallados, tareas prácticas y <strong>devolución personalizada</strong>.</p>
+        <div class="cta-row">
+          <a class="button primary" href="https://wa.me/5492235110468?text=Hola%20Ro%2C%20quiero%20consultar%20por%20el%20curso%20online%20de%20lencer%C3%ADa" target="_blank" rel="noreferrer" data-whatsapp-link>Inscribirme por WhatsApp</a>
+          <a class="button secondary" href="#programa">Ver programa</a>
+        </div>
+      </div>
+
+      <figure class="course-hero-image">
+        <img src="assets/shop-corsets-tops.jpg" alt="Corsetería de Atelier Medieval">
+      </figure>
+
+      <aside class="course-panel" aria-label="Datos principales del curso">
+        <div>
+          <span>Duración</span>
+          <strong>2 meses</strong>
+        </div>
+        <div>
+          <span>Modalidad</span>
+          <strong>Google Classroom</strong>
+        </div>
+        <div>
+          <span>Acompañamiento</span>
+          <strong>WhatsApp + consultas</strong>
+        </div>
+        <p>Videos detallados, tareas prácticas y devolución personalizada durante el recorrido.</p>
+      </aside>
+    </section>
+
+    <section class="course-result" aria-labelledby="course-result-title">
+      <div>
+        <p class="eyebrow">Resultado</p>
+        <h2 id="course-result-title">En 2 meses vas a poder crear tus primeras prendas de lencería.</h2>
+      </div>
+      <div class="course-result-copy">
+        <p>No necesitás una máquina industrial ni un taller profesional. El curso está pensado para que puedas empezar con una <strong>máquina familiar doméstica</strong> y avanzar paso a paso, entendiendo el <strong>armado, la prueba, la corrección y la moldería</strong> de cada prenda.</p>
+        <div class="course-benefits">
+          <span>Aprendés desde la práctica.</span>
+          <span>Avanzás a tu ritmo.</span>
+          <span>Tenés devolución de Rocío.</span>
+          <span>Creás tu propia moldería.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="course-for-you" aria-labelledby="course-for-you-title">
+      <div class="section-heading">
+        <p class="eyebrow">Este curso es para vos si...</p>
+        <h2 id="course-for-you-title">Querés aprender lencería con una guía clara y acompañada.</h2>
+      </div>
+      <div class="course-for-you-grid">
+        <p>Querés aprender lencería pero no sabés por dónde empezar.</p>
+        <p>Tenés una máquina familiar y querés usarla para crear prendas reales.</p>
+        <p>Te interesa coser para vos, probar diseños o empezar a vender.</p>
+        <p>Buscás una guía práctica, cercana y con devolución.</p>
+        <p>Querés aprender el proceso, no solo copiar moldes.</p>
+        <p>Querés entender cómo crear la moldería, no depender de moldes descargables.</p>
+      </div>
+      <a class="button primary course-inline-cta" href="https://wa.me/5492235110468?text=Hola%20Ro%2C%20quiero%20consultar%20por%20el%20curso%20online%20de%20lencer%C3%ADa" target="_blank" rel="noreferrer" data-whatsapp-link>Inscribirme por WhatsApp</a>
+    </section>
+
+    <section class="course-program" id="programa" aria-labelledby="course-program-title">
+      <div class="section-heading">
+        <p class="eyebrow">Programa</p>
+        <h2 id="course-program-title">Qué vas a aprender</h2>
+        <p>Un recorrido <strong>práctico</strong> para construir prendas desde las bases hasta piezas con <strong>más estructura</strong>, aprendiendo también a crear la <strong>moldería</strong>.</p>
+      </div>
+
+      <div class="course-program-grid">
+        <article class="course-card">
+          <span class="card-number">01</span>
+          <h3>Bombachas</h3>
+          <p>Primeras bases para entender elasticidad, terminaciones y calce.</p>
+          <ul>
+            <li>Vedetina.</li>
+            <li>Triangulito con breteles.</li>
+            <li>Colaless y coulotteless.</li>
+          </ul>
+        </article>
+
+        <article class="course-card">
+          <span class="card-number">02</span>
+          <h3>Corpiños</h3>
+          <p>Recursos para construir variantes con más sostén, forma y estructura.</p>
+          <ul>
+            <li>Triangulito y sus variantes.</li>
+            <li>Taza triangulito.</li>
+            <li>Con aro y sin taza.</li>
+            <li>Con taza y aro.</li>
+          </ul>
+        </article>
+
+        <article class="course-card">
+          <span class="card-number">03</span>
+          <h3>Prendas completas</h3>
+          <p>Piezas para integrar lo aprendido en prendas funcionales y usables.</p>
+          <ul>
+            <li>Body.</li>
+            <li>Top deportivo básico.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="course-method" aria-labelledby="course-method-title">
+      <div class="course-method-copy">
+        <p class="eyebrow">Cómo se cursa</p>
+        <h2 id="course-method-title">Una dinámica online, clara y acompañada.</h2>
+      </div>
+
+      <div class="course-steps">
+        <article>
+          <span>01</span>
+          <h3>Contenido en Classroom</h3>
+          <p>Todo el material queda disponible en Google Classroom con videos explicativos en detalle para cada prenda.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Módulos cada 15 días</h3>
+          <p>Cada 15 días se desbloquea un nuevo módulo para que puedas avanzar con orden y practicar sin apuro.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Tareas con devolución</h3>
+          <p>Después de cada módulo entregás una tarea por WhatsApp privado para recibir devolución o charlarla en consulta.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Consultas semanales</h3>
+          <p>Hay una clase de consulta semanal, no obligatoria, pactada previamente según las necesidades del grupo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="course-community" aria-labelledby="course-community-title">
+      <div>
+        <p class="eyebrow">Acompañamiento</p>
+        <h2 id="course-community-title">No estás sola mirando videos.</h2>
+      </div>
+      <div class="course-community-note">
+        <p>Además del <strong>contenido grabado</strong>, vas a formar parte de un <strong>grupo de WhatsApp</strong> donde Rocío avisa cada nuevo desbloqueo, comparte tips extra y acompaña el proceso de aprendizaje.</p>
+        <div class="course-mini-list">
+          <span>Grupo de WhatsApp.</span>
+          <span>Devolución privada.</span>
+          <span>Tips extra.</span>
+          <span>Consulta semanal.</span>
+          <span>Ritmo ordenado por módulos.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="course-teacher" aria-labelledby="course-teacher-title">
+      <figure class="course-teacher-photo">
+        <img src="assets/rocio-aranda.png" alt="Rocío Aranda, diseñadora detrás de Atelier Medieval">
+      </figure>
+      <div>
+        <p class="eyebrow">Quién te guía</p>
+        <h2 id="course-teacher-title">Aprendé con Rocío Aranda.</h2>
+        <p>Rocío Aranda es la diseñadora detrás de <strong>Atelier Medieval</strong>, una marca enfocada en <strong>diseño de autor</strong>, <strong>alta costura</strong>, <strong>corsetería</strong> y prendas a medida.</p>
+        <p>En este curso comparte su forma de trabajar desde el <strong>oficio</strong>, acompañando cada proceso con una mirada <strong>práctica, detallista y profesional</strong>.</p>
+        <a class="button secondary" href="https://www.instagram.com/medievalbyaranda/" target="_blank" rel="noreferrer">Ver Instagram</a>
+      </div>
+    </section>
+
+    <section class="course-pricing" aria-labelledby="course-pricing-title">
+      <p class="eyebrow">Inscripción</p>
+      <h2 id="course-pricing-title">Empezá a coser tu propia lencería con una guía profesional.</h2>
+      <p>Curso online de <strong>2 meses</strong> para aprender a confeccionar <strong>bombachas, corpiños, body y top deportivo</strong> con tu máquina familiar doméstica, entendiendo cómo crear tu propia <strong>moldería</strong>.</p>
+      <div class="course-price-card">
+        <p class="price-kicker">Inversión mensual</p>
+        <div class="price-main">
+          <strong>$25.000</strong>
+          <span>por mes</span>
+        </div>
+        <p class="price-note">Valor total del curso: $50.000.</p>
+        <div class="price-details">
+          <span>2 meses</span>
+          <span>Pago del 1 al 10</span>
+          <span>Classroom + WhatsApp</span>
+        </div>
+        <div class="price-actions">
+          <a class="button primary" href="https://wa.me/5492235110468?text=Hola%20Ro%2C%20quiero%20consultar%20por%20el%20curso%20online%20de%20lencer%C3%ADa" target="_blank" rel="noreferrer" data-whatsapp-link>Inscribirme por WhatsApp</a>
+          <a class="button secondary" href="https://www.instagram.com/medievalbyaranda/" target="_blank" rel="noreferrer">Ver Instagram</a>
+        </div>
+        <small>Consultá disponibilidad y materiales necesarios antes de empezar.</small>
+      </div>
+    </section>
+
+    <section class="course-faq" aria-labelledby="course-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2 id="course-faq-title">Dudas antes de inscribirte.</h2>
+      </div>
+      <div class="course-faq-list">
+        <details>
+          <summary>¿Necesito experiencia previa?</summary>
+          <p>No es necesario tener <strong>experiencia avanzada</strong>. El curso está pensado para aprender <strong>paso a paso</strong>.</p>
+        </details>
+        <details>
+          <summary>¿Necesito una máquina industrial?</summary>
+          <p>No. El curso está pensado para trabajar con <strong>máquina familiar doméstica</strong>.</p>
+        </details>
+        <details>
+          <summary>¿Las clases son en vivo?</summary>
+          <p>El contenido principal está en <strong>videos dentro de Google Classroom</strong>. Además, hay una <strong>consulta semanal</strong> pactada previamente.</p>
+        </details>
+        <details>
+          <summary>¿Puedo avanzar a mi ritmo?</summary>
+          <p>Sí. Los módulos se desbloquean <strong>cada 15 días</strong> para que puedas practicar con orden y sin apuro.</p>
+        </details>
+        <details>
+          <summary>¿Cómo recibo devolución?</summary>
+          <p>Después de cada módulo enviás tu tarea por <strong>WhatsApp privado</strong> para recibir <strong>devolución</strong> o charlarla en consulta.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto dura el acceso?</summary>
+          <p>Vas a tener acceso al contenido durante <strong>1 año</strong> para poder rever las clases y volver al material cuando lo necesites.</p>
+        </details>
+        <details>
+          <summary>¿Los materiales están incluidos?</summary>
+          <p>No. Los <strong>materiales no están incluidos</strong>. Antes de empezar podés consultar qué necesitás para preparar tus primeras prendas.</p>
+        </details>
+      </div>
+    </section>
+
+    <a class="course-sticky-cta" href="https://wa.me/5492235110468?text=Hola%20Ro%2C%20quiero%20consultar%20por%20el%20curso%20online%20de%20lencer%C3%ADa" target="_blank" rel="noreferrer" data-whatsapp-link>Inscribirme</a>
+  </main>
+}
 
   <footer class="site-footer">
     <p>Atelier Medieval · Rocío Aranda · Tandil, Buenos Aires</p>
