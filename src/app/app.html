@@ -15,13 +15,22 @@
     </button>
 
     <nav class="main-nav" [class.is-open]="menuOpen" (click)="closeMenuFromNav($event)" aria-label="Navegacion principal">
-      <a [href]="isCoursePage ? '/#tienda' : '#tienda'">Tienda</a>
-      <a [href]="isCoursePage ? '/#amedida' : '#amedida'">A medida</a>
-      <a [href]="isCoursePage ? '/#ro' : '#ro'">Sobre Ro</a>
-      <a href="/curso-lenceria">Curso online</a>
-      <a [href]="isCoursePage ? '/#showroom' : '#showroom'">Showroom</a>
-      <a href="https://www.instagram.com/medievalbyaranda/" target="_blank" rel="noreferrer">Instagram</a>
-      <a [href]="isCoursePage ? '/#contacto' : '#contacto'">Contacto</a>
+      @if (isCoursePage) {
+        <a href="#programa">Programa</a>
+        <a href="#como-se-cursa">Cómo se cursa</a>
+        <a href="#acompanamiento">Acompañamiento</a>
+        <a href="#inscripcion">Inscripción</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="https://www.instagram.com/medievalbyaranda/" target="_blank" rel="noreferrer">Instagram</a>
+      } @else {
+        <a href="#tienda">Tienda</a>
+        <a href="#amedida">A medida</a>
+        <a href="#ro">Sobre Ro</a>
+        <a href="/curso-lenceria">Curso online</a>
+        <a href="#showroom">Showroom</a>
+        <a href="https://www.instagram.com/medievalbyaranda/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="#contacto">Contacto</a>
+      }
     </nav>
 
     @if (isCoursePage) {
@@ -40,7 +49,7 @@
 
       <div class="hero-copy">
         <p class="eyebrow">Atelier de diseño de autor · Tandil</p>
-        <h1 id="hero-title"><span>Diseños de autor</span><span>para vestir</span><span>momentos importantes</span></h1>
+        <h1 id="hero-title"><span>Vestí momentos</span><span>únicos</span></h1>
         <p class="hero-lede"><strong>Vestidos de fiesta</strong>, piezas listas para usar y asesoramiento de imagen creados por Rocío Aranda desde su atelier en Tandil.</p>
         <div class="cta-row">
           <a class="button primary" href="https://medievalbyaranda.com.ar/fashion-tienda/" target="_blank" rel="noreferrer" data-shop-link>Ver tienda online</a>
@@ -390,7 +399,7 @@
       </div>
     </section>
 
-    <section class="course-method" aria-labelledby="course-method-title">
+    <section class="course-method" id="como-se-cursa" aria-labelledby="course-method-title">
       <div class="course-method-copy">
         <p class="eyebrow">Cómo se cursa</p>
         <h2 id="course-method-title">Una dinámica online, clara y acompañada.</h2>
@@ -420,7 +429,7 @@
       </div>
     </section>
 
-    <section class="course-community" aria-labelledby="course-community-title">
+    <section class="course-community" id="acompanamiento" aria-labelledby="course-community-title">
       <div>
         <p class="eyebrow">Acompañamiento</p>
         <h2 id="course-community-title">No estás sola mirando videos.</h2>
@@ -450,7 +459,7 @@
       </div>
     </section>
 
-    <section class="course-pricing" aria-labelledby="course-pricing-title">
+    <section class="course-pricing" id="inscripcion" aria-labelledby="course-pricing-title">
       <p class="eyebrow">Inscripción</p>
       <h2 id="course-pricing-title">Empezá a coser tu propia lencería con una guía profesional.</h2>
       <p>Curso online de <strong>2 meses</strong> para aprender a confeccionar <strong>bombachas, corpiños, body y top deportivo</strong> con tu máquina familiar doméstica, entendiendo cómo crear tu propia <strong>moldería</strong>.</p>
@@ -474,7 +483,7 @@
       </div>
     </section>
 
-    <section class="course-faq" aria-labelledby="course-faq-title">
+    <section class="course-faq" id="preguntas" aria-labelledby="course-faq-title">
       <div class="section-heading">
         <p class="eyebrow">Preguntas frecuentes</p>
         <h2 id="course-faq-title">Dudas antes de inscribirte.</h2>

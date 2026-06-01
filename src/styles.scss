@@ -9,7 +9,7 @@
   --black: #120e0d;
   --line: rgba(33, 24, 23, 0.14);
   --shadow: 0 24px 70px rgba(33, 24, 23, 0.12);
-  --serif: "Playfair Display", Georgia, serif;
+  --serif: "Lora", Georgia, serif;
   --sans: "Manrope", Arial, sans-serif;
 }
 
@@ -500,7 +500,7 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 80;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -1209,6 +1209,7 @@ blockquote {
 @media (max-width: 1050px) {
   .site-header {
     grid-template-columns: auto auto;
+    backdrop-filter: none;
   }
 
   .header-cta {
@@ -1236,6 +1237,7 @@ blockquote {
   .main-nav {
     position: fixed;
     inset: 4.85rem 0 auto 0;
+    z-index: 81;
     display: none;
     padding: 1.25rem;
     background: var(--paper);
@@ -1602,7 +1604,7 @@ blockquote {
 
 /* Atelier Medieval v4: textura, profundidad y jerarquía editorial */
 :root {
-  --serif: "Playfair Display", Georgia, serif;
+  --serif: "Lora", Georgia, serif;
   --sans: "Manrope", Arial, sans-serif;
   --shadow: 0 26px 80px rgba(75, 53, 122, 0.14);
 }
@@ -3163,10 +3165,8 @@ blockquote {
 }
 
 .about-ro .eyebrow::after {
-  content: "";
-  width: 3.2rem;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(155, 122, 229, 0.62), transparent);
+  display: none;
+  content: none;
 }
 
 .shop .microcopy {
@@ -3200,6 +3200,16 @@ blockquote {
 }
 
 @media (max-width: 680px) {
+  .about-ro > div:first-child {
+    text-align: left !important;
+  }
+
+  .about-ro .eyebrow {
+    justify-content: flex-start !important;
+    width: auto !important;
+    text-align: left !important;
+  }
+
   .process-list article {
     padding-top: 1.3rem;
   }
@@ -3218,13 +3228,16 @@ blockquote {
   }
 
   #ro-title {
-    max-width: 9.5ch;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: 13ch;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: clamp(2rem, 8.2vw, 2.38rem) !important;
+    line-height: 1.04 !important;
+    text-align: left;
   }
 
   .about-ro .eyebrow::after {
-    width: 2.4rem;
+    display: none;
   }
 
   .shop .microcopy {
@@ -3725,17 +3738,25 @@ blockquote {
 
 @media (max-width: 680px) {
   #hero-title {
-    max-width: 10.6ch;
-    font-size: clamp(2.7rem, 10.7vw, 3.12rem);
+    max-width: 10.8ch;
+    font-size: clamp(2.62rem, 10.5vw, 3.18rem);
     line-height: 0.98;
+  }
+
+  .intro h2 {
+    max-width: 12.8ch !important;
+    font-size: clamp(2rem, 8.2vw, 2.36rem) !important;
+    line-height: 1.04 !important;
   }
 
   #hero-title span:nth-child(1) {
     white-space: normal;
   }
 
-  #hero-title span:nth-child(3) {
-    max-width: 10.6ch;
+  #hero-title span:nth-child(2) {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -3903,11 +3924,7 @@ blockquote {
   }
 
   .process-list article::after {
-    top: 1.72rem;
-    left: 0.42rem;
-    transform: none;
-    width: 0.56rem;
-    height: 0.56rem;
+    display: none !important;
   }
 
   .process-list span {
@@ -5389,6 +5406,14 @@ blockquote {
   border-radius: 999px;
 }
 
+.course-program,
+.course-method,
+.course-community,
+.course-pricing,
+.course-faq {
+  scroll-margin-top: 6rem;
+}
+
 .course-hero {
   grid-template-columns: minmax(0, 0.92fr) minmax(17rem, 0.52fr) !important;
   gap: clamp(1.4rem, 4vw, 4rem) !important;
@@ -5934,9 +5959,9 @@ blockquote {
   }
 
   .course-hero h1 {
-    max-width: 11.5ch !important;
-    font-size: clamp(2.18rem, 9.2vw, 2.72rem) !important;
-    line-height: 1.05 !important;
+    max-width: 12.8ch !important;
+    font-size: clamp(2.28rem, 10vw, 3rem) !important;
+    line-height: 0.98 !important;
   }
 
   .course-lede {
