@@ -522,6 +522,13 @@ a {
   min-width: 13rem;
 }
 
+.brand-logo {
+  display: block;
+  width: clamp(9.4rem, 16vw, 13.2rem);
+  max-height: 2.45rem;
+  height: auto;
+}
+
 .brand-mark {
   display: grid;
   width: 2.6rem;
@@ -1807,6 +1814,12 @@ blockquote {
 
   .brand {
     max-width: 16rem;
+    min-width: 0;
+  }
+
+  .brand-logo {
+    width: min(11.4rem, 48vw);
+    max-height: 2.15rem;
   }
 
   .hero {
@@ -5779,6 +5792,53 @@ blockquote {
   font-weight: 700;
 }
 
+.price-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.price-option {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem;
+  border: 1px solid rgba(110, 72, 199, 0.12);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.price-label {
+  color: var(--course-purple-dark);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.price-option strong {
+  font-family: var(--serif);
+  color: var(--ink);
+  font-size: clamp(2rem, 3vw, 2.85rem);
+  line-height: 0.95;
+}
+
+.price-option p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.price-option p strong {
+  display: inline;
+  font-family: inherit;
+  color: var(--course-purple-dark);
+  font-size: inherit;
+  line-height: inherit;
+}
+
 .price-details {
   display: grid;
   grid-template-columns: 1fr;
@@ -6177,4 +6237,611 @@ blockquote {
   .course-faq details {
     border-radius: 1.1rem !important;
   }
+}
+
+/* Course editorial motion system */
+:root {
+  --motion-fast: 220ms;
+  --motion-standard: 680ms;
+  --motion-editorial: 980ms;
+  --motion-stagger: 86ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.course-motion-ready {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.7rem;
+}
+
+.course-motion-ready .site-header {
+  animation: course-header-arrive var(--motion-standard) var(--motion-ease) both;
+  transition:
+    padding var(--motion-fast) var(--motion-ease),
+    background var(--motion-fast) var(--motion-ease),
+    border-color var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+.course-motion-ready .brand {
+  animation: course-rise 620ms var(--motion-ease) 70ms both;
+}
+
+.course-motion-ready .main-nav a,
+.course-motion-ready .header-cta {
+  opacity: 0;
+  animation: course-soft-arrive 560ms var(--motion-ease) both;
+}
+
+.course-motion-ready .main-nav a:nth-child(1) { animation-delay: 190ms; }
+.course-motion-ready .main-nav a:nth-child(2) { animation-delay: 250ms; }
+.course-motion-ready .main-nav a:nth-child(3) { animation-delay: 310ms; }
+.course-motion-ready .main-nav a:nth-child(4) { animation-delay: 370ms; }
+.course-motion-ready .main-nav a:nth-child(5) { animation-delay: 430ms; }
+.course-motion-ready .main-nav a:nth-child(6) { animation-delay: 490ms; }
+.course-motion-ready .header-cta { animation-delay: 560ms; }
+
+.course-motion-ready .site-header.is-scrolled {
+  padding-top: 0.58rem;
+  padding-bottom: 0.58rem;
+  background: rgba(251, 247, 241, 0.86);
+  border-bottom-color: rgba(75, 53, 122, 0.14);
+  box-shadow: 0 0.8rem 2.5rem rgba(33, 24, 23, 0.075);
+  backdrop-filter: blur(14px);
+}
+
+.course-motion-ready .main-nav a {
+  position: relative;
+}
+
+.course-motion-ready .main-nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.34rem;
+  left: 0;
+  height: 1px;
+  background: var(--lilac);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+
+.course-motion-ready .main-nav a:hover::after,
+.course-motion-ready .main-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.course-motion-ready .course-page .button,
+.course-motion-ready .course-sticky-cta,
+.course-motion-ready .header-cta {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 240ms var(--motion-ease),
+    box-shadow 240ms var(--motion-ease),
+    border-color 240ms var(--motion-ease),
+    background 240ms var(--motion-ease);
+}
+
+.course-motion-ready .course-page .button.primary::after,
+.course-motion-ready .course-sticky-cta::after,
+.course-motion-ready .header-cta::after {
+  content: "";
+  position: absolute;
+  inset: -45% auto -45% -70%;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  opacity: 0;
+  transform: skewX(-18deg) translateX(0);
+  pointer-events: none;
+}
+
+.course-motion-ready .course-page .button:hover,
+.course-motion-ready .course-page .button:focus-visible,
+.course-motion-ready .course-sticky-cta:hover,
+.course-motion-ready .course-sticky-cta:focus-visible,
+.course-motion-ready .header-cta:hover,
+.course-motion-ready .header-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2.4rem rgba(75, 53, 122, 0.18);
+}
+
+.course-motion-ready .course-page .button.primary:hover::after,
+.course-motion-ready .course-page .button.primary:focus-visible::after,
+.course-motion-ready .course-sticky-cta:hover::after,
+.course-motion-ready .course-sticky-cta:focus-visible::after,
+.course-motion-ready .header-cta:hover::after,
+.course-motion-ready .header-cta:focus-visible::after {
+  animation: course-satin-sweep 760ms var(--motion-ease-soft);
+}
+
+.course-motion-ready .course-hero .eyebrow,
+.course-motion-ready .course-hero h1,
+.course-motion-ready .course-lede,
+.course-motion-ready .course-hero .cta-row,
+.course-motion-ready .course-hero-image,
+.course-motion-ready .course-panel div,
+.course-motion-ready .course-panel p,
+.course-motion-ready .course-result .eyebrow,
+.course-motion-ready .course-result h2,
+.course-motion-ready .course-result-copy,
+.course-motion-ready .course-benefits span,
+.course-motion-ready .course-for-you .section-heading,
+.course-motion-ready .course-for-you-grid p,
+.course-motion-ready .course-inline-cta,
+.course-motion-ready .course-program .section-heading,
+.course-motion-ready .course-card,
+.course-motion-ready .course-card li,
+.course-motion-ready .course-method-copy,
+.course-motion-ready .course-steps article,
+.course-motion-ready .course-community > div:first-child,
+.course-motion-ready .course-community-note p,
+.course-motion-ready .course-mini-list span,
+.course-motion-ready .course-teacher-photo,
+.course-motion-ready .course-teacher > div > *:not(h2),
+.course-motion-ready .course-pricing > .eyebrow,
+.course-motion-ready .course-pricing > h2,
+.course-motion-ready .course-pricing > p:not(.eyebrow),
+.course-motion-ready .price-kicker,
+.course-motion-ready .price-option,
+.course-motion-ready .price-details,
+.course-motion-ready .price-actions,
+.course-motion-ready .course-price-card small,
+.course-motion-ready .course-faq .section-heading,
+.course-motion-ready .course-faq details,
+.course-motion-ready .site-footer {
+  opacity: 0;
+}
+
+.course-motion-ready .course-hero h1,
+.course-motion-ready .course-result h2,
+.course-motion-ready .course-program h2,
+.course-motion-ready .course-community h2,
+.course-motion-ready .course-teacher h2,
+.course-motion-ready .course-pricing > h2,
+.course-motion-ready .course-faq h2 {
+  clip-path: inset(0 0 110% 0);
+  transform: translateY(28px);
+}
+
+.course-motion-ready .course-hero .eyebrow,
+.course-motion-ready .course-lede,
+.course-motion-ready .course-hero .cta-row,
+.course-motion-ready .course-panel div,
+.course-motion-ready .course-panel p,
+.course-motion-ready .course-result .eyebrow,
+.course-motion-ready .course-result-copy,
+.course-motion-ready .course-benefits span,
+.course-motion-ready .course-for-you .section-heading,
+.course-motion-ready .course-for-you-grid p,
+.course-motion-ready .course-inline-cta,
+.course-motion-ready .course-program .section-heading,
+.course-motion-ready .course-card,
+.course-motion-ready .course-card li,
+.course-motion-ready .course-method-copy,
+.course-motion-ready .course-steps article,
+.course-motion-ready .course-community > div:first-child,
+.course-motion-ready .course-community-note p,
+.course-motion-ready .course-mini-list span,
+.course-motion-ready .course-teacher > div > *:not(h2),
+.course-motion-ready .course-pricing > .eyebrow,
+.course-motion-ready .course-pricing > p:not(.eyebrow),
+.course-motion-ready .price-kicker,
+.course-motion-ready .price-option,
+.course-motion-ready .price-details,
+.course-motion-ready .price-actions,
+.course-motion-ready .course-price-card small,
+.course-motion-ready .course-faq .section-heading,
+.course-motion-ready .course-faq details,
+.course-motion-ready .site-footer {
+  transform: translateY(22px);
+}
+
+.course-motion-ready .course-hero-image,
+.course-motion-ready .course-teacher-photo {
+  clip-path: inset(100% 0 0 0 round 1.6rem);
+  transform: translateY(8px) scale(1.025);
+}
+
+.course-motion-ready .course-hero.is-visible .eyebrow { animation: course-rise var(--motion-standard) var(--motion-ease) 80ms both; }
+.course-motion-ready .course-hero.is-visible h1 { animation: course-title-reveal var(--motion-editorial) var(--motion-ease) 210ms both; }
+.course-motion-ready .course-hero.is-visible .course-lede { animation: course-rise var(--motion-standard) var(--motion-ease) 420ms both; }
+.course-motion-ready .course-hero.is-visible .cta-row { animation: course-rise var(--motion-standard) var(--motion-ease) 560ms both; }
+.course-motion-ready .course-hero.is-visible .course-hero-image { animation: course-cloth-reveal 950ms var(--motion-ease-soft) 680ms both; }
+.course-motion-ready .course-hero.is-visible .course-panel div { animation: course-rise-small 560ms var(--motion-ease) both; }
+.course-motion-ready .course-hero.is-visible .course-panel div:nth-child(1) { animation-delay: 820ms; }
+.course-motion-ready .course-hero.is-visible .course-panel div:nth-child(2) { animation-delay: 900ms; }
+.course-motion-ready .course-hero.is-visible .course-panel div:nth-child(3) { animation-delay: 980ms; }
+.course-motion-ready .course-hero.is-visible .course-panel p { animation: course-rise-small 560ms var(--motion-ease) 1080ms both; }
+
+.course-motion-ready .course-result.is-visible .eyebrow,
+.course-motion-ready .course-program.is-visible .eyebrow,
+.course-motion-ready .course-community.is-visible .eyebrow,
+.course-motion-ready .course-teacher.is-visible .eyebrow,
+.course-motion-ready .course-pricing.is-visible > .eyebrow,
+.course-motion-ready .course-faq.is-visible .eyebrow {
+  animation: course-rise-small 560ms var(--motion-ease) both;
+}
+
+.course-motion-ready .course-result.is-visible h2,
+.course-motion-ready .course-program.is-visible h2,
+.course-motion-ready .course-community.is-visible h2,
+.course-motion-ready .course-teacher.is-visible h2,
+.course-motion-ready .course-pricing.is-visible > h2,
+.course-motion-ready .course-faq.is-visible h2 {
+  animation: course-title-reveal var(--motion-editorial) var(--motion-ease) 110ms both;
+}
+
+.course-motion-ready .course-result.is-visible .course-result-copy { animation: course-rise var(--motion-standard) var(--motion-ease) 250ms both; }
+.course-motion-ready .course-result.is-visible .course-benefits span { animation: course-rise-small 540ms var(--motion-ease) both; }
+.course-motion-ready .course-result.is-visible .course-benefits span:nth-child(1) { animation-delay: 390ms; }
+.course-motion-ready .course-result.is-visible .course-benefits span:nth-child(2) { animation-delay: 470ms; }
+.course-motion-ready .course-result.is-visible .course-benefits span:nth-child(3) { animation-delay: 550ms; }
+.course-motion-ready .course-result.is-visible .course-benefits span:nth-child(4) { animation-delay: 630ms; }
+
+.course-motion-ready .course-benefits span,
+.course-motion-ready .course-for-you-grid p,
+.course-motion-ready .course-mini-list span,
+.course-motion-ready .course-card,
+.course-motion-ready .price-option {
+  transition:
+    transform 240ms var(--motion-ease),
+    border-color 240ms var(--motion-ease),
+    box-shadow 240ms var(--motion-ease),
+    background 240ms var(--motion-ease);
+}
+
+.course-motion-ready .course-benefits span:hover,
+.course-motion-ready .course-for-you-grid p:hover,
+.course-motion-ready .course-mini-list span:hover {
+  transform: translateY(-3px);
+  border-color: rgba(110, 72, 199, 0.28);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 0.7rem 1.6rem rgba(75, 53, 122, 0.08);
+}
+
+.course-motion-ready .course-for-you.is-visible .section-heading { animation: course-rise var(--motion-editorial) var(--motion-ease) both; }
+.course-motion-ready .course-for-you.is-visible .course-for-you-grid p { animation: course-rise-small 540ms var(--motion-ease) both; }
+.course-motion-ready .course-for-you.is-visible .course-for-you-grid p:nth-child(1) { animation-delay: 170ms; }
+.course-motion-ready .course-for-you.is-visible .course-for-you-grid p:nth-child(2) { animation-delay: 250ms; }
+.course-motion-ready .course-for-you.is-visible .course-for-you-grid p:nth-child(3) { animation-delay: 330ms; }
+.course-motion-ready .course-for-you.is-visible .course-for-you-grid p:nth-child(4) { animation-delay: 410ms; }
+.course-motion-ready .course-for-you.is-visible .course-for-you-grid p:nth-child(5) { animation-delay: 490ms; }
+.course-motion-ready .course-for-you.is-visible .course-for-you-grid p:nth-child(6) { animation-delay: 570ms; }
+.course-motion-ready .course-for-you.is-visible .course-inline-cta { animation: course-rise-small 540ms var(--motion-ease) 690ms both; }
+
+.course-motion-ready .course-program .course-program-grid {
+  position: relative;
+}
+
+.course-motion-ready .course-program .course-program-grid::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(110, 72, 199, 0), rgba(110, 72, 199, 0.45), rgba(110, 72, 199, 0));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.course-motion-ready .course-program.is-visible .section-heading { animation: course-rise var(--motion-editorial) var(--motion-ease) both; }
+.course-motion-ready .course-program.is-visible .course-program-grid::before { animation: course-stitch-x 900ms var(--motion-ease) 210ms both; }
+.course-motion-ready .course-program.is-visible .course-card { animation: course-card-rise 720ms var(--motion-ease) both; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(1) { animation-delay: 340ms; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(2) { animation-delay: 460ms; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(3) { animation-delay: 580ms; }
+.course-motion-ready .course-program.is-visible .course-card li { animation: course-rise-tight 440ms var(--motion-ease) both; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(1) li:nth-child(1) { animation-delay: 760ms; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(1) li:nth-child(2) { animation-delay: 820ms; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(1) li:nth-child(3) { animation-delay: 880ms; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(2) li:nth-child(1) { animation-delay: 870ms; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(2) li:nth-child(2) { animation-delay: 930ms; }
+.course-motion-ready .course-program.is-visible .course-card:nth-child(3) li:nth-child(1) { animation-delay: 980ms; }
+
+.course-motion-ready .course-card:hover,
+.course-motion-ready .course-card:focus-within,
+.course-motion-ready .price-option:hover,
+.course-motion-ready .price-option:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(110, 72, 199, 0.3) !important;
+  box-shadow: 0 1rem 2.4rem rgba(75, 53, 122, 0.1) !important;
+}
+
+.course-motion-ready .course-card .card-number {
+  transition: transform 280ms var(--motion-ease), opacity 280ms var(--motion-ease);
+}
+
+.course-motion-ready .course-card:hover .card-number,
+.course-motion-ready .course-card:focus-within .card-number {
+  transform: translateY(-2px);
+  opacity: 0.84;
+}
+
+.course-motion-ready .course-program.is-visible .course-card:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -35%;
+  width: 24%;
+  background: linear-gradient(90deg, transparent, rgba(155, 122, 229, 0.12), transparent);
+  opacity: 0;
+  transform: skewX(-18deg) translateX(0);
+  pointer-events: none;
+  animation: course-bonus-glint 900ms var(--motion-ease-soft) 920ms both;
+}
+
+.course-motion-ready .course-method .course-steps {
+  position: relative;
+}
+
+.course-motion-ready .course-method .course-steps::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--lilac), rgba(155, 122, 229, 0.14));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.course-motion-ready .course-method.is-visible .course-method-copy { animation: course-rise var(--motion-editorial) var(--motion-ease) both; }
+.course-motion-ready .course-method.is-visible .course-steps::before { animation: course-stitch-x 980ms var(--motion-ease) 140ms both; }
+.course-motion-ready .course-method.is-visible .course-steps article { animation: course-rise-small 620ms var(--motion-ease) both; }
+.course-motion-ready .course-method.is-visible .course-steps article:nth-child(1) { animation-delay: 220ms; }
+.course-motion-ready .course-method.is-visible .course-steps article:nth-child(2) { animation-delay: 340ms; }
+.course-motion-ready .course-method.is-visible .course-steps article:nth-child(3) { animation-delay: 460ms; }
+.course-motion-ready .course-method.is-visible .course-steps article:nth-child(4) { animation-delay: 580ms; }
+
+.course-motion-ready .course-community-note {
+  position: relative;
+}
+
+.course-motion-ready .course-community-note::before {
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(110, 72, 199, 0), rgba(110, 72, 199, 0.42), rgba(110, 72, 199, 0));
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.course-motion-ready .course-community.is-visible > div:first-child { animation: course-rise var(--motion-editorial) var(--motion-ease) both; }
+.course-motion-ready .course-community.is-visible .course-community-note::before { animation: course-stitch-y 820ms var(--motion-ease) 240ms both; }
+.course-motion-ready .course-community.is-visible .course-community-note p { animation: course-rise var(--motion-standard) var(--motion-ease) both; }
+.course-motion-ready .course-community.is-visible .course-community-note p:nth-child(1) { animation-delay: 220ms; }
+.course-motion-ready .course-community.is-visible .course-community-note p:nth-child(2) { animation-delay: 330ms; }
+.course-motion-ready .course-community.is-visible .course-mini-list span { animation: course-rise-tight 480ms var(--motion-ease) both; }
+.course-motion-ready .course-community.is-visible .course-mini-list span:nth-child(1) { animation-delay: 460ms; }
+.course-motion-ready .course-community.is-visible .course-mini-list span:nth-child(2) { animation-delay: 530ms; }
+.course-motion-ready .course-community.is-visible .course-mini-list span:nth-child(3) { animation-delay: 600ms; }
+.course-motion-ready .course-community.is-visible .course-mini-list span:nth-child(4) { animation-delay: 670ms; }
+.course-motion-ready .course-community.is-visible .course-mini-list span:nth-child(5) { animation-delay: 740ms; }
+
+.course-motion-ready .course-teacher.is-visible .course-teacher-photo { animation: course-cloth-reveal 920ms var(--motion-ease-soft) both; }
+.course-motion-ready .course-teacher.is-visible > div > *:not(h2) { animation: course-rise var(--motion-standard) var(--motion-ease) both; }
+.course-motion-ready .course-teacher.is-visible > div > *:nth-child(1) { animation-delay: 150ms; }
+.course-motion-ready .course-teacher.is-visible > div > *:nth-child(3) { animation-delay: 380ms; }
+.course-motion-ready .course-teacher.is-visible > div > *:nth-child(4) { animation-delay: 490ms; }
+.course-motion-ready .course-teacher.is-visible > div > *:nth-child(5) { animation-delay: 600ms; }
+
+.course-motion-ready .course-teacher-photo img {
+  transition: transform 950ms var(--motion-ease-soft);
+}
+
+.course-motion-ready .course-teacher-photo:hover img,
+.course-motion-ready .course-teacher-photo:focus-within img {
+  transform: scale(1.025);
+}
+
+.course-motion-ready .course-pricing.is-visible > .eyebrow { animation: course-rise-small 520ms var(--motion-ease) both; }
+.course-motion-ready .course-pricing.is-visible > h2 { animation: course-title-reveal var(--motion-editorial) var(--motion-ease) 90ms both; }
+.course-motion-ready .course-pricing.is-visible > p:not(.eyebrow) { animation: course-rise var(--motion-standard) var(--motion-ease) 230ms both; }
+.course-motion-ready .course-pricing.is-visible .price-kicker { animation: course-rise-small 460ms var(--motion-ease) 330ms both; }
+.course-motion-ready .course-pricing.is-visible .price-option:nth-child(1) { animation: course-rise-small 560ms var(--motion-ease) 450ms both; }
+.course-motion-ready .course-pricing.is-visible .price-option:nth-child(2) { animation: course-rise-small 560ms var(--motion-ease) 570ms both; }
+.course-motion-ready .course-pricing.is-visible .price-option:nth-child(2) p strong { animation: course-discount-pop 450ms var(--motion-ease) 760ms both; }
+.course-motion-ready .course-pricing.is-visible .price-details { animation: course-rise-small 520ms var(--motion-ease) 690ms both; }
+.course-motion-ready .course-pricing.is-visible .price-actions { animation: course-rise-small 520ms var(--motion-ease) 790ms both; }
+.course-motion-ready .course-pricing.is-visible small { animation: course-rise-tight 460ms var(--motion-ease) 900ms both; }
+
+.course-motion-ready .course-faq.is-visible .section-heading { animation: course-rise var(--motion-editorial) var(--motion-ease) both; }
+.course-motion-ready .course-faq.is-visible details { animation: course-rise-small 560ms var(--motion-ease) both; }
+.course-motion-ready .course-faq.is-visible details:nth-child(1),
+.course-motion-ready .course-faq.is-visible details:nth-child(2) { animation-delay: 180ms; }
+.course-motion-ready .course-faq.is-visible details:nth-child(3),
+.course-motion-ready .course-faq.is-visible details:nth-child(4) { animation-delay: 270ms; }
+.course-motion-ready .course-faq.is-visible details:nth-child(5),
+.course-motion-ready .course-faq.is-visible details:nth-child(6) { animation-delay: 360ms; }
+.course-motion-ready .course-faq.is-visible details:nth-child(7),
+.course-motion-ready .course-faq.is-visible details:nth-child(8) { animation-delay: 450ms; }
+
+.course-faq details::details-content {
+  block-size: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-8px);
+  transition:
+    block-size 300ms var(--motion-ease),
+    opacity 260ms var(--motion-ease),
+    transform 300ms var(--motion-ease);
+  transition-behavior: allow-discrete;
+}
+
+.course-faq details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.course-faq summary::before {
+  transition:
+    transform 280ms var(--motion-ease),
+    background 240ms var(--motion-ease),
+    color 240ms var(--motion-ease);
+}
+
+.course-faq details[open] summary::before {
+  content: "+";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.course-motion-ready .site-footer.is-visible {
+  animation: course-footer-fade 560ms var(--motion-ease) both;
+}
+
+@keyframes course-header-arrive {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes course-soft-arrive {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes course-rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes course-rise-small {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes course-rise-tight {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes course-title-reveal {
+  from { opacity: 0; clip-path: inset(0 0 110% 0); transform: translateY(28px); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+@keyframes course-cloth-reveal {
+  from { opacity: 0; clip-path: inset(100% 0 0 0 round 1.6rem); transform: translate(6px, 8px) scale(1.025); }
+  to { opacity: 1; clip-path: inset(0 0 0 0 round 1.6rem); transform: translate(0, 0) scale(1); }
+}
+
+@keyframes course-card-rise {
+  from { opacity: 0; transform: translateY(22px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes course-stitch-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes course-stitch-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes course-bonus-glint {
+  0% { opacity: 0; transform: skewX(-18deg) translateX(0); }
+  28%, 64% { opacity: 1; }
+  100% { opacity: 0; transform: skewX(-18deg) translateX(570%); }
+}
+
+@keyframes course-discount-pop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes course-satin-sweep {
+  0% { opacity: 0; transform: skewX(-18deg) translateX(0); }
+  18%, 72% { opacity: 1; }
+  100% { opacity: 0; transform: skewX(-18deg) translateX(420%); }
+}
+
+@keyframes course-footer-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 680px) {
+  .course-motion-ready {
+    scroll-padding-top: 5rem;
+  }
+
+  .course-motion-ready .site-header.is-scrolled {
+    padding-top: 0.62rem;
+    padding-bottom: 0.62rem;
+  }
+
+  .course-motion-ready .course-hero h1,
+  .course-motion-ready .course-result h2,
+  .course-motion-ready .course-program h2,
+  .course-motion-ready .course-community h2,
+  .course-motion-ready .course-teacher h2,
+  .course-motion-ready .course-pricing > h2,
+  .course-motion-ready .course-faq h2 {
+    transform: translateY(18px);
+  }
+
+  .course-motion-ready .course-hero .eyebrow,
+  .course-motion-ready .course-lede,
+  .course-motion-ready .course-hero .cta-row,
+  .course-motion-ready .course-panel div,
+  .course-motion-ready .course-panel p,
+  .course-motion-ready .course-result-copy,
+  .course-motion-ready .course-benefits span,
+  .course-motion-ready .course-for-you .section-heading,
+  .course-motion-ready .course-for-you-grid p,
+  .course-motion-ready .course-inline-cta,
+  .course-motion-ready .course-program .section-heading,
+  .course-motion-ready .course-card,
+  .course-motion-ready .course-method-copy,
+  .course-motion-ready .course-steps article,
+  .course-motion-ready .course-community > div:first-child,
+  .course-motion-ready .course-community-note p,
+  .course-motion-ready .course-mini-list span,
+  .course-motion-ready .course-teacher > div > *:not(h2),
+  .course-motion-ready .course-pricing > .eyebrow,
+  .course-motion-ready .course-pricing > p:not(.eyebrow),
+  .course-motion-ready .price-kicker,
+  .course-motion-ready .price-option,
+  .course-motion-ready .price-details,
+  .course-motion-ready .price-actions,
+  .course-motion-ready .course-price-card small,
+  .course-motion-ready .course-faq .section-heading,
+  .course-motion-ready .course-faq details {
+    transform: translateY(14px);
+  }
+
+  .course-motion-ready .course-method .course-steps::before,
+  .course-motion-ready .course-program .course-program-grid::before,
+  .course-motion-ready .course-community-note::before {
+    display: none;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  scroll-behavior: auto !important;
+  transition-duration: 1ms !important;
+  animation-duration: 1ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+.reduce-motion .course-page *,
+.reduce-motion .course-page *::before,
+.reduce-motion .course-page *::after,
+.reduce-motion .site-header,
+.reduce-motion .site-header *,
+.reduce-motion .site-footer {
+  opacity: 1 !important;
+  clip-path: none !important;
+  transform: none !important;
 }
